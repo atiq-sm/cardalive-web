@@ -3,234 +3,78 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CardAlive — Scan the card. Watch it come alive.</title>
-  <meta name="description" content="CardAlive is the engine that brings trading cards to life. Scan a QR card and a 3D creature rises off it to battle in mixed reality. Join the waitlist." />
+  <title>CardAlive — Bring your cards to life</title>
+  <meta name="description" content="CardAlive brings trading cards to life. Join the waitlist." />
 
-  <!-- Open Graph / social -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="CardAlive — bring your cards to life" />
-  <meta property="og:description" content="Scan a QR card. A creature rises off it and battles in mixed reality. Join the waitlist." />
-  <meta property="og:image" content="./assets/img/aqua-blob.png" />
-  <meta name="theme-color" content="#070a10" />
+  <meta property="og:title" content="CardAlive — Bring your cards to life" />
+  <meta property="og:description" content="We bring trading cards to life. Join the waitlist." />
+  <meta property="og:image" content="./assets/img/logo.png" />
+  <meta name="theme-color" content="#050608" />
 
   <link rel="icon" href="./assets/img/favicon.svg" type="image/svg+xml" />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
-  <!-- animated backdrop -->
-  <div class="bg-grid" aria-hidden="true"></div>
   <div class="bg-glow bg-glow--teal" aria-hidden="true"></div>
   <div class="bg-glow bg-glow--gold" aria-hidden="true"></div>
   <canvas id="particles" aria-hidden="true"></canvas>
 
-  <!-- NAV -->
-  <header class="nav" id="nav">
-    <a class="brand" href="#hero" aria-label="CardAlive home">
-      <span class="brand__mark">◆</span>
-      <span class="brand__text">CARD<span class="brand__alt">ALIVE</span></span>
-    </a>
-    <nav class="nav__links">
-      <a href="#cards">The Cards</a>
-      <a href="#how">How It Works</a>
-      <a href="#vision">Vision</a>
-    </nav>
-    <a href="#waitlist" class="btn btn--sm">Join Waitlist</a>
-  </header>
+  <main class="stage">
+    <!-- LOGO -->
+    <img class="logo" src="./assets/img/logo.png" alt="CardAlive" width="1000" height="540" />
 
-  <main>
-    <!-- HERO -->
-    <section class="hero" id="hero">
-      <div class="hero__copy reveal">
-        <div class="eyebrow"><span class="eyebrow__dot"></span> Mixed-reality card battler · Meta Quest 3</div>
-        <h1 class="hero__title">
-          Scan the card.<br />
-          <span class="grad-text">Watch it come alive.</span>
-        </h1>
-        <p class="hero__sub">
-          CardAlive is the engine that brings trading cards to life. Point your headset at a QR card
-          and a 3D creature rises off the paper — then fights across your real table.
-        </p>
-        <div class="hero__cta">
-          <a href="#waitlist" class="btn btn--lg">Join the Waitlist <span class="btn__arrow">→</span></a>
-          <a href="#how" class="btn btn--ghost btn--lg">See how it works</a>
-        </div>
-        <div class="hero__meta">
-          <div><strong>2</strong><span>creatures live</span></div>
-          <div class="hero__meta-div"></div>
-          <div><strong>0</strong><span>apps to install</span></div>
-          <div class="hero__meta-div"></div>
-          <div><strong>∞</strong><span>cards, one engine</span></div>
-        </div>
-      </div>
+    <!-- QUOTE -->
+    <p class="tagline">Bring your cards to life</p>
 
-      <div class="hero__art reveal">
-        <div class="card-float card-float--front" data-tilt>
-          <img src="./assets/img/aqua-blob.png" alt="Aqua Blob card" loading="eager" width="512" height="768" />
+    <!-- VIDEOS -->
+    <div class="videos">
+      <figure class="vid">
+        <div class="vid__frame" role="img" aria-label="Video placeholder: where we started">
+          <span class="vid__play">▶</span>
+          <span class="vid__soon">Video coming soon</span>
         </div>
-        <div class="card-float card-float--back" data-tilt>
-          <img src="./assets/img/goblin-raider.png" alt="Goblin Raider card" loading="lazy" width="512" height="768" />
-        </div>
-        <div class="hero__art-glow" aria-hidden="true"></div>
-      </div>
-    </section>
+        <figcaption class="vid__cap">Where we started</figcaption>
+      </figure>
 
-    <!-- MARQUEE -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee__track">
-        <span>SCAN TO SUMMON</span><span class="marquee__dot">◆</span>
-        <span>BRING CARDS TO LIFE</span><span class="marquee__dot">◆</span>
-        <span>MIXED REALITY</span><span class="marquee__dot">◆</span>
-        <span>NO APP · NO SETUP</span><span class="marquee__dot">◆</span>
-        <span>SCAN TO SUMMON</span><span class="marquee__dot">◆</span>
-        <span>BRING CARDS TO LIFE</span><span class="marquee__dot">◆</span>
-        <span>MIXED REALITY</span><span class="marquee__dot">◆</span>
-        <span>NO APP · NO SETUP</span><span class="marquee__dot">◆</span>
-      </div>
+      <figure class="vid">
+        <div class="vid__frame" role="img" aria-label="Video placeholder: where we are now">
+          <span class="vid__play">▶</span>
+          <span class="vid__soon">Video coming soon</span>
+        </div>
+        <figcaption class="vid__cap">Where we are now</figcaption>
+      </figure>
     </div>
-
-    <!-- CARDS -->
-    <section class="section" id="cards">
-      <div class="section__head reveal">
-        <div class="kicker">The Roster</div>
-        <h2 class="section__title">Two cards. <span class="grad-text">One duel.</span></h2>
-        <p class="section__lead">Every card carries a QR sigil. Scan it and the creature on the art stands up off the table, ready to fight.</p>
-      </div>
-
-      <div class="roster">
-        <article class="creature creature--aqua reveal" data-tilt>
-          <div class="creature__img">
-            <img src="./assets/img/aqua-blob.png" alt="Aqua Blob" loading="lazy" width="512" height="768" />
-          </div>
-          <div class="creature__info">
-            <div class="creature__type type--water">WATER · ●●●●</div>
-            <h3 class="creature__name">Aqua Blob</h3>
-            <p class="creature__flavor">"Consumes foes whole."</p>
-            <div class="stats">
-              <div class="stat"><span class="stat__label">ATK</span><span class="stat__val">1800</span></div>
-              <div class="stat"><span class="stat__label">DEF</span><span class="stat__val">900</span></div>
-            </div>
-          </div>
-        </article>
-
-        <div class="versus" aria-hidden="true"><span>VS</span></div>
-
-        <article class="creature creature--goblin reveal" data-tilt>
-          <div class="creature__img">
-            <img src="./assets/img/goblin-raider.png" alt="Goblin Raider" loading="lazy" width="512" height="768" />
-          </div>
-          <div class="creature__info">
-            <div class="creature__type type--dark">DARK · ☠☠</div>
-            <h3 class="creature__name">Goblin Raider</h3>
-            <p class="creature__flavor">"Dies fighting, never quietly."</p>
-            <div class="stats">
-              <div class="stat"><span class="stat__label">ATK</span><span class="stat__val">1200</span></div>
-              <div class="stat"><span class="stat__label">DEF</span><span class="stat__val">800</span></div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section class="section" id="how">
-      <div class="section__head reveal">
-        <div class="kicker">The Loop</div>
-        <h2 class="section__title">Scan. Summon. <span class="grad-text">Battle.</span></h2>
-        <p class="section__lead">No app store. No printed markers. No setup. Put the headset on, look at the sheet, and the duel begins.</p>
-      </div>
-
-      <div class="steps">
-        <div class="step reveal">
-          <div class="step__num">01</div>
-          <div class="step__icon">▣</div>
-          <h3>Scan</h3>
-          <p>Your headset reads the QR sigil on each card and knows exactly which creature it holds.</p>
-        </div>
-        <div class="step reveal">
-          <div class="step__num">02</div>
-          <div class="step__icon">✦</div>
-          <h3>Summon</h3>
-          <p>A rigged 3D creature rises off the paper and stands on your real table, facing its rival.</p>
-        </div>
-        <div class="step reveal">
-          <div class="step__num">03</div>
-          <div class="step__icon">⚔</div>
-          <h3>Battle</h3>
-          <p>Trigger an attack — spells, lances, acid — and watch the other creature play out its death.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- VISION -->
-    <section class="section vision" id="vision">
-      <div class="vision__inner reveal">
-        <div class="kicker">The Vision</div>
-        <h2 class="vision__title">We're the <span class="grad-text">engine</span> for card games.</h2>
-        <p class="vision__body">
-          Yu-Gi-Oh does it for its own world. Japan's 4D theaters do it for a live audience.
-          We do it for everyone else's cards — different games, same magic.
-        </p>
-        <p class="vision__body">
-          We start on the headset. The north star is holograms and 4D: a dragon that charges up,
-          vaporizes the mage across the table, and you feel it in the room. We prove it with one
-          game people love — then card makers come to us to bring their cards alive.
-        </p>
-        <div class="vision__tag">Hit first. Platform second.</div>
-      </div>
-    </section>
 
     <!-- WAITLIST -->
-    <section class="section waitlist" id="waitlist">
-      <div class="waitlist__card reveal">
-        <div class="kicker">Early Access</div>
-        <h2 class="waitlist__title">Be first to bring your cards <span class="grad-text">alive.</span></h2>
-        <p class="waitlist__lead">Join the waitlist for the first drop, demo invites, and founding-player perks.</p>
+    <div class="cta" id="cta">
+      <button type="button" class="btn" id="join-btn">
+        Join the Waitlist <span class="btn__arrow">→</span>
+      </button>
 
-        <form id="waitlist-form" class="wl-form" novalidate>
-          <!-- Web3Forms: replace access_key with your key from https://web3forms.com -->
-          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
-          <input type="hidden" name="subject" value="New CardAlive waitlist signup" />
-          <input type="hidden" name="from_name" value="CardAlive Waitlist" />
-          <!-- honeypot -->
-          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <form id="waitlist-form" class="wl-form" novalidate hidden>
+        <!-- Web3Forms: replace with your key from https://web3forms.com -->
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+        <input type="hidden" name="subject" value="New CardAlive waitlist signup" />
+        <input type="hidden" name="from_name" value="CardAlive Waitlist" />
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <div class="wl-form__row">
+          <input type="email" name="email" id="wl-email" class="wl-form__input"
+                 placeholder="you@email.com" autocomplete="email" required />
+          <button type="submit" class="btn wl-form__btn">
+            <span class="wl-form__btn-label">Join</span>
+          </button>
+        </div>
+      </form>
 
-          <div class="wl-form__row">
-            <input
-              type="email"
-              name="email"
-              id="wl-email"
-              class="wl-form__input"
-              placeholder="you@email.com"
-              autocomplete="email"
-              required
-            />
-            <button type="submit" class="btn btn--lg wl-form__btn">
-              <span class="wl-form__btn-label">Join Waitlist</span>
-              <span class="wl-form__btn-arrow">→</span>
-            </button>
-          </div>
-          <p class="wl-form__msg" id="wl-msg" role="status" aria-live="polite"></p>
-          <p class="wl-form__fine">No spam. One email when we launch.</p>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer__brand">
-      <span class="brand__mark">◆</span>
-      <span class="brand__text">CARD<span class="brand__alt">ALIVE</span></span>
+      <p class="wl-msg" id="wl-msg" role="status" aria-live="polite"></p>
     </div>
-    <p class="footer__line">Bringing trading cards to life. · Building in Maine, 2026.</p>
-    <p class="footer__fine">Full-stack &amp; XR builders wanted — reply to any waitlist email to reach the team.</p>
-  </footer>
+  </main>
 
   <script src="./assets/js/main.js" defer></script>
 </body>
