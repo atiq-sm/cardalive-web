@@ -133,6 +133,7 @@ img { display: block; max-width: 100%; }
 .cta { display: flex; flex-direction: column; align-items: center; gap: 0.9rem; animation: fadeIn 1s var(--ease) 0.5s both; }
 .btn {
   display: inline-flex; align-items: center; gap: 0.5em;
+  text-decoration: none;              /* the CTA is an <a> to the Google Form */
   font-family: 'Rajdhani', sans-serif; font-weight: 700;
   letter-spacing: 0.06em; text-transform: uppercase; font-size: clamp(1rem, 1.5vw, 1.15rem);
   padding: 0.85em 2em; border-radius: 999px; cursor: pointer;
@@ -147,23 +148,7 @@ img { display: block; max-width: 100%; }
 .btn__arrow { transition: transform .25s var(--ease); }
 .btn:hover .btn__arrow { transform: translateX(4px); }
 
-.wl-form { width: min(92vw, 440px); }
-.wl-form[hidden] { display: none; }
-.wl-form__row { display: flex; gap: 0.5rem; }
-.wl-form__input {
-  flex: 1; min-width: 0; padding: 0.85em 1.1em; border-radius: 999px;
-  background: rgba(4,10,16,0.75); border: 1px solid var(--panel-brd);
-  color: var(--ink); font-size: 1rem; font-family: 'Rajdhani', sans-serif; font-weight: 500;
-  transition: border-color .2s, box-shadow .2s;
-}
-.wl-form__input::placeholder { color: var(--ink-faint); }
-.wl-form__input:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px rgba(55,224,255,0.15); }
-.wl-form__btn { flex-shrink: 0; padding: 0.85em 1.4em; }
-.hp { position: absolute; left: -9999px; opacity: 0; }
-
-.wl-msg { min-height: 1.3em; font-weight: 600; letter-spacing: 0.02em; font-size: 0.98rem; }
-.wl-msg.is-error { color: #ff8a8a; }
-.wl-msg.is-ok { color: var(--teal); }
+.btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 

@@ -42,11 +42,19 @@ ffmpeg -i raw.mp4 -vf scale=-2:720 -c:v libx264 -profile:v high -pix_fmt yuv420p
 `-pix_fmt yuv420p` and `-movflags +faststart` are both required: the first for browser
 compatibility, the second so playback can start before the whole file arrives.
 
-## Waitlist (free, no backend)
-Form posts to [Web3Forms](https://web3forms.com) — free, no account, emails you each signup.
-1. https://web3forms.com → enter your email → copy the **access key**.
-2. Replace `YOUR_WEB3FORMS_ACCESS_KEY` in `index.html`.
-3. Commit + push. Signups land in your inbox.
+## Waitlist
+The "Join the Waitlist" button is a plain link to a Google Form, opened in a new tab:
+
+```
+https://forms.gle/tzt7sP8B76FTRjBf7
+```
+
+To point it somewhere else, edit that one `href` in `index.html`. Responses live in the
+form's own Google Sheet — there is no backend, no API key, and no JS involved.
+
+Previously this was an inline email field posting to Web3Forms. That needed an access key
+that was never filled in, so the field silently collected nothing; the Google Form replaces
+it outright and `main.js` is now only the particle backdrop.
 
 ## Deploy
 Already on GitHub Pages (Settings → Pages → branch `master` / root). Every push to `master`

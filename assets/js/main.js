@@ -3,75 +3,8 @@
   'use strict';
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  var joinBtn = document.getElementById('join-btn');
-  var form = document.getElementById('waitlist-form');
-  var msg = document.getElementById('wl-msg');
-  var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  function setMsg(text, kind) {
-    if (!msg) return;
-    msg.textContent = text || '';
-    msg.className = 'wl-msg' + (kind ? ' is-' + kind : '');
-  }
-
-  /* reveal the email field on first click */
-  if (joinBtn && form) {
-    joinBtn.addEventListener('click', function () {
-      form.hidden = false;
-      joinBtn.hidden = true;
-      var input = document.getElementById('wl-email');
-      if (input) input.focus();
-    });
-  }
-
-  /* submit -> Web3Forms */
-  if (form) {
-    form.addEventListener('submit', function (ev) {
-      ev.preventDefault();
-      var email = (form.email.value || '').trim();
-      if (!emailRe.test(email)) {
-        setMsg('Enter a valid email address.', 'error');
-        form.email.focus();
-        return;
-      }
-
-      var key = form.access_key.value;
-      if (!key || key === 'YOUR_WEB3FORMS_ACCESS_KEY') {
-        setMsg('Waitlist not wired yet — add your Web3Forms access key.', 'error');
-        return;
-      }
-
-      var btn = form.querySelector('button[type="submit"]');
-      var label = form.querySelector('.wl-form__btn-label');
-      var old = label ? label.textContent : '';
-      if (btn) btn.disabled = true;
-      if (label) label.textContent = '…';
-      setMsg('');
-
-      fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: new FormData(form)
-      })
-        .then(function (r) { return r.json(); })
-        .then(function (json) {
-          if (json && json.success) {
-            form.reset();
-            form.hidden = true;
-            setMsg('You’re on the list. Welcome to CardAlive. ◆', 'ok');
-          } else {
-            setMsg((json && json.message) || 'Something went wrong. Try again.', 'error');
-            if (btn) btn.disabled = false;
-            if (label) label.textContent = old;
-          }
-        })
-        .catch(function () {
-          setMsg('Network error. Try again.', 'error');
-          if (btn) btn.disabled = false;
-          if (label) label.textContent = old;
-        });
-    });
-  }
+  /* The waitlist CTA is a plain link to a Google Form now — no reveal, no submit
+     handler, no form backend. This file is just the particle backdrop. */
 
   /* subtle particle field */
   var canvas = document.getElementById('particles');
