@@ -35,17 +35,23 @@
     <!-- VIDEOS -->
     <div class="videos">
       <figure class="vid">
-        <div class="vid__frame" role="img" aria-label="Video placeholder: where we started">
-          <span class="vid__play">▶</span>
-          <span class="vid__soon">Video coming soon</span>
+        <div class="vid__frame vid__frame--filled">
+          <video class="vid__video" controls playsinline preload="metadata"
+                 poster="./assets/video/where-we-started.jpg"
+                 aria-label="Where we started: QR card detection in the Unity editor">
+            <source src="./assets/video/where-we-started.mp4" type="video/mp4" />
+          </video>
         </div>
         <figcaption class="vid__cap">Where we started</figcaption>
       </figure>
 
       <figure class="vid">
-        <div class="vid__frame" role="img" aria-label="Video placeholder: where we are now">
-          <span class="vid__play">▶</span>
-          <span class="vid__soon">Video coming soon</span>
+        <div class="vid__frame vid__frame--filled">
+          <video class="vid__video" controls playsinline preload="metadata"
+                 poster="./assets/video/where-we-are-now.jpg"
+                 aria-label="Where we are now: creatures summoned onto a real table on Quest 3">
+            <source src="./assets/video/where-we-are-now.mp4" type="video/mp4" />
+          </video>
         </div>
         <figcaption class="vid__cap">Where we are now</figcaption>
       </figure>
