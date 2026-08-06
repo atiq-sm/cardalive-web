@@ -24,7 +24,12 @@ body {
   background-attachment: fixed;
   color: var(--ink);
   font-family: 'Rajdhani', system-ui, sans-serif;
-  overflow: hidden;
+  overflow-x: hidden;
+  /* Was `overflow: hidden`, which hard-clipped a centred column that outgrew the
+     viewport — on a ~800px-tall window that ate the top of the logo AND the waitlist
+     button. Everything below is sized off vh so it fits without scrolling, but a short
+     window scrolls rather than hiding the call to action. */
+  overflow-y: auto;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -42,16 +47,20 @@ img { display: block; max-width: 100%; }
 /* ---------- stage: centered, fills viewport ---------- */
 .stage {
   position: relative; z-index: 2;
-  height: 100dvh;
+  min-height: 100dvh;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: clamp(1.1rem, 3.2vh, 2.4rem);
-  padding: clamp(1.2rem, 4vh, 2.5rem) clamp(1rem, 4vw, 2rem);
+  gap: clamp(0.9rem, 2.6vh, 2.2rem);
+  padding: clamp(1rem, 3vh, 2.2rem) clamp(1rem, 4vw, 2rem);
   text-align: center;
 }
 
 /* ---------- logo ---------- */
 .logo {
-  width: clamp(320px, 62vw, 820px);
+  /* Height-driven, not width-driven: at 62vw the wordmark was 444px tall and pushed
+     the waitlist button off a short viewport. Sizing off vh keeps it the hero on a
+     big monitor while yielding on a laptop. max-width guards narrow screens. */
+  width: clamp(240px, 50vh, 640px);
+  max-width: 62vw;
   height: auto;
   filter: drop-shadow(0 0 34px rgba(55,224,255,0.35)) drop-shadow(0 8px 24px rgba(0,0,0,0.6));
   animation: logoIn 1s var(--ease) both;
@@ -72,7 +81,9 @@ img { display: block; max-width: 100%; }
 /* ---------- videos ---------- */
 .videos {
   display: flex; gap: clamp(0.9rem, 2.5vw, 1.8rem);
-  width: min(100%, 980px);
+  /* The 110vh term caps the pair by viewport height: two 16/9 frames side by side get
+     tall fast, so on a short window they give ground before the CTA does. */
+  width: min(100%, 980px, 110vh);
   animation: fadeIn 1s var(--ease) 0.35s both;
 }
 .vid { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 0.7rem; }
@@ -158,9 +169,9 @@ img { display: block; max-width: 100%; }
 
 /* ---------- responsive ---------- */
 @media (max-width: 620px) {
+  /* Stacked, so the 110vh pair-cap no longer applies — one frame, plain width. */
   .videos { flex-direction: column; width: min(100%, 420px); }
-  body { overflow-y: auto; }          /* let the stacked layout breathe on phones */
-  .stage { height: auto; min-height: 100dvh; }
+  .logo { max-width: 82vw; }
 }
 
 @media (prefers-reduced-motion: reduce) {
